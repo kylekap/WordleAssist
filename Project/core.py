@@ -61,8 +61,8 @@ class Wordle:
 
 
     def filter_possibilities(self):
-        li = [ele for ele in self.remain_words if any(ch in ele for ch in self.split(self.include))] #Included
-        li = [ele for ele in li if all(ch not in ele for ch in self.split(self.exclude))] #Excluded
+        li = [ele for ele in self.remain_words if all(ch not in ele for ch in self.split(self.exclude))] #Excluded
+        li = [ele for ele in li if all(ch in ele for ch in self.split(self.include))] #Included
         li = self.position_check(li) #Exact placements
         return li
 
