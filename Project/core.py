@@ -54,7 +54,7 @@ class Wordle:
             corr_pos = str(input("Enter letters that were in correct positions. The format should be ??a?? where 'a' was a correct letter: ")).lower()
             if len(corr_pos) == self.word_length: break
     
-        #remove anything that WAS included
+        #remove anything that WAS included... just in case
         excluded = ''.join([x for x in excluded if x not in included])
     
         return (included,excluded,corr_pos)
