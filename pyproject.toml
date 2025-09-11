@@ -1,0 +1,61 @@
+[build-system]
+requires = ['setuptools', 'wheel']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'WordleAssist'
+version = '2025.1' # Versions are [Year].[Release of Year]
+description = 'WordleAssist is a helper library for solving Wordle puzzles.'
+requires-python = '>=3.9'
+license = {file = "LICENSE.txt"}
+keywords = ['Python']
+authors = [{email = 'kylekaptbone@yahoo.com'},{name = 'Kyle Patterson'}]
+classifiers = ['Programming Language :: Python']
+dynamic = ['readme']
+dependencies = ['ruff', "requests", "re", "csv"]
+
+[tool.setuptools.dynamic]
+readme = {file = ['README.md']}
+
+[project.optional-dependencies]
+dev = [
+'pytest>=8.2.2',
+'pyupgrade>=3.16.0',
+'pre-commit>=3.7.1',
+]
+
+[project.urls]
+homepage = 'https://github.com/kylekap/WordleAssist'
+documentation = 'https://github.com/kylekap/WordleAssist/tree/main/docs'
+repository = 'https://github.com/kylekap/WordleAssist'
+changelog = 'https://github.com/kylekap/WordleAssist/tree/main/Docs/Changelog.md'
+
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.format]
+quote-style = "double" # Like Black, use double quotes for strings.
+indent-style = "space" # Like Black, indent with spaces, rather than tabs.
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "ANN",  # flake8-annotations
+    "ARG002", # Sometimes, you want functions to match
+    "BLE001", 
+    "COM812", # trailing commas, redundant with formatter
+    "D100", # ignore missing docs
+    "D101",
+    "D102",
+    "D103",
+    "D104",
+    "D105",
+    "D106",
+    "D107",
+    "D203", # D211 preferred
+    "D213", # D212 preferred
+    "E501", # Avoid enforcing line-length violations (`E501`)
+    "S101", # Assert is only used in the testing modules
+    "T201", # I'm gunna print sometimes, you gotta live with it
+    ]
